@@ -1,0 +1,170 @@
+.dashboard {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.dashboard h2 {
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.dashboard-section {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-section h3 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.files-list {
+  margin-top: 1.5rem;
+}
+
+.files-list h4 {
+  margin-bottom: 1rem;
+  color: #666;
+  font-size: 1rem;
+}
+
+.file-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.file-item:hover {
+  background-color: #f9f9f9;
+  border-color: #25d366;
+}
+
+.file-item.selected {
+  background-color: #e8f5e9;
+  border-color: #25d366;
+}
+
+.file-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.file-name {
+  font-weight: 500;
+  color: #333;
+}
+
+.file-size {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.checkmark {
+  color: #25d366;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.send-section {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-send {
+  width: 100%;
+  background-color: #25d366;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-send:hover:not(:disabled) {
+  background-color: #20ba5a;
+}
+
+.btn-send:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.send-results {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.send-results h4 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.result-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  background-color: #f9f9f9;
+}
+
+.result-item.success {
+  background-color: #e8f5e9;
+}
+
+.result-item.failed {
+  background-color: #ffebee;
+}
+
+.result-name {
+  flex: 1;
+  font-weight: 500;
+  color: #333;
+}
+
+.result-status {
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+}
+
+.result-status.success {
+  background-color: #4caf50;
+  color: white;
+}
+
+.result-status.failed {
+  background-color: #f44336;
+  color: white;
+}
+
+.result-error {
+  font-size: 0.85rem;
+  color: #d32f2f;
+  font-style: italic;
+}

@@ -1,0 +1,65 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model File {
+  id           String   @id @default(uuid())
+  filename     String
+  originalName String
+  size         Int
+  mimeType     String
+  storageType  String   // "local" or "cloud"
+  storagePath  String
+  uploadDate   DateTime @default(now())
+  
+  logs         Log[]
+  
+  @@map("files")
+}
+
+model Contact {
+  id          String   @id @default(uuid())
+  name        String
+  phoneNumber String
+  isGroup     Boolean  @default(false)
+  groupId     String?
+  
+  logs        Log[]
+  
+  @@map("contacts")
+}
+
+model Group {
+  id          String   @id @default(uuid())
+  name        String
+  description String?
+  createdAt   DateTime @default(now())
+  
+  @@map("groups")
+}
+
+model Log {
+  id           String   @id @default(uuid())
+  type         String   // "send" or "receive"
+  fileId       String
+  contactId    String
+  timestamp    DateTime @default(now())
+  status       String   // "success" or "failed"
+  errorMessage String?
+  
+  file         File     @relation(fields: [fileId], references: [id], onDelete: Cascade)
+  contact      Contact  @relation(fields: [contactId], references: [id], onDelete: Cascade)
+  
+  @@index([timestamp])
+  @@index([type])
+  @@index([status])
+  @@map("logs")
+}
